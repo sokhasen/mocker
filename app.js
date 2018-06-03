@@ -2,28 +2,36 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var app		=	express();
 var mongoose = require("mongoose");
-var DEFAULT_PORT = process.env.PORT || 3000;
-var PREFIX_API = "/api/v1/";
+var DEFAULT_PORT = process.env.PORT || 2018;
+var STAGE = "/api/v1/";
 
-const mongoLocal = 'mongodb://localhost/api_management';
+const mongoLocal = "mongodb://sokha:76b16afb8783fecd803b737acaaed18d41b9aa86c6900eb6a0ac852be132805a@ds213229.mlab.com:13229/mock-server-api"; //'mongodb://localhost/api_management';
 mongoose.connect(process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || mongoLocal);
 var db = mongoose.connection;
 
-var user = require("./routes/user.js");
+var user = require("./routes/user");
+var project = require("./routes/project");
+var resource = require("./routes/resource");
+var workspace = require("./routes/workspace");
+
+var middleware = require("./middlewares/middleware");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// app.use(middleware.checkSubDomainName);
+/*
 app.use((req, res, next) => {
     const hosts = req.headers.host.split(".");
     if (hosts.length > 0) {
         const subdomain = hosts[0];
-        req.subdomain = subdomain;
+        req.subDomain = subdomain;
     }
     next();
 });
+*/
 
-app.use(PREFIX_API, [user]);
+app.use(STAGE, [user, workspace, project, resource]);
 
 
 // catch 404 and forward to error handler
@@ -46,6 +54,6 @@ app.use(function(err, req, res, next) {
   res.end(res.locals.message);
 });
 
-app.listen(3000, function(error) {
+app.listen(DEFAULT_PORT, function(error) {
 	console.log("Server host on port: localhost:"+DEFAULT_PORT);
 });

@@ -1,8 +1,9 @@
-var router = require("express").Router();
-var jwt = require("jsonwebtoken");
+const router = require("express").Router();
+const jwt = require("jsonwebtoken");
 const bcrypt = require('bcrypt');
-var user = require("../models/user");
-router.post('/user/register', (req, res, next) => {
+const user = require("../models/user");
+
+router.post('/users/register', (req, res, next) => {
 	const username = req.body.username;
 	const email = req.body.email;
 	const password = req.body.password;
@@ -63,17 +64,17 @@ router.post('/user/register', (req, res, next) => {
 });
 
 
-router.post('/user/login', (req, res) => {
+router.post('/users/login', (req, res) => {
 	const email = req.body.email;
-	const attempPassword = req.body.password;
+	const attemptPassword = req.body.password;
 
-	if (email && attempPassword) {
+	if (email && attemptPassword) {
 		user.is_existing(email, (err, result) => {
 			if (err) {
 				throw err;
 			}
 
-			if (result.length == 0) {
+			if (result.length === 0) {
 				res.status(404);
 				res.json({
 					message: "user not Found"
@@ -81,10 +82,10 @@ router.post('/user/login', (req, res) => {
 			}
 			else {
 				const savedUser = result[0];
-				const correctPassword = __comparePassword(savedUser.password, attempPassword);
-				const correctEmail = savedUser.email == email;
+				const correctPassword = __comparePassword(savedUser.password, attemptPassword);
+				const correctEmail = savedUser.email === email;
 				if (correctPassword && correctEmail) {
-					const payload = { user_id: savedUser._id }
+					const payload = { user_id: savedUser._id };
 					const token = __createToken(payload);
 					res.json({
 						token: token
@@ -110,7 +111,7 @@ router.post('/user/login', (req, res) => {
 });
 
 
-router.get('/user/account', (req, res, next) => {
+router.get('/users/account', (req, res, next) => {
 	user.getAllUser((err, users) => {
 		if (err) {
 			throw err;
@@ -136,7 +137,8 @@ router.post('/user/mail/resend', (req, res) => {
 				savedUser.agent = __getClient(req);
 				__sendMail(savedUser, (err, info) => {
 					console.log("mail resend");
-					res.json({
+                    console.log(err, info);
+                    res.json({
 						message: "Mail has been resent!"
 					})
 				});
@@ -152,16 +154,15 @@ router.post('/user/mail/resend', (req, res) => {
 	}
 	else {
 		res.json({
-			statusCode: 200,
-			users: users
+			message: "required email"
 		});
 	}
 
 });
 
 
-router.get("/user/confirmation", (req, res) => {
-	console.log(req.subdomain);
+router.get("/users/confirmation", (req, res) => {
+	console.log(req.subDomain);
 	const { email, ip, agent, token, timestamp } = req.query;
 	user.is_existing(email, (err, result) => {
 		if (err) throw err;
@@ -170,6 +171,7 @@ router.get("/user/confirmation", (req, res) => {
 			if (savedUser.token) {
 				user.updateUser({ email: email}, { token: null, is_user: true }, (err, result) => {
 					if (err) throw err;
+					console.log(result);
 					res.json({
 						message: "confirmed successfully"
 					})
@@ -202,7 +204,7 @@ function __genRandomString(length){
 
 function __hashPassword(password) {
 	try {
-		var salt = bcrypt.genSaltSync(16)
+		var salt = bcrypt.genSaltSync(16);
 	    return bcrypt.hashSync(password, salt);
 	} catch (e) {
 		throw e;
@@ -214,8 +216,8 @@ function __comparePassword(savedHash, passwordAttempt) {
 }
 
 function __sendMail (new_user, callback) {
-	var nodemailer = require("nodemailer");
-	var transporter = nodemailer.createTransport({
+	var nodeMailer = require("nodeMailer");
+	var transporter = nodeMailer.createTransport({
 		service: 'gmail',
 		auth: {
 			user: 'gapi.teamate@gmail.com',

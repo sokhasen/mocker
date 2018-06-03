@@ -1,4 +1,4 @@
-var mongoose =  require("mongoose");
+const mongoose =  require("mongoose");
 const userSchema = mongoose.Schema({
 	username: {
 		type: String,
@@ -30,18 +30,27 @@ const userSchema = mongoose.Schema({
 	}
 });
 
-var User = module.exports = mongoose.model('User', userSchema);
+const User = module.exports = mongoose.model('User', userSchema);
 
 module.exports.createUser = function(user,callback) {
 	User.create(user,callback);
-}
+};
 
 module.exports.is_existing = function( email, callback) {
 	User.find({"email": email}, callback);
 };
+
+module.exports.findByUsername = function( username, callback) {
+    User.find({ "username": username}, (err, query) => {
+        if (err)
+            throw err;
+        callback(query);
+    });
+};
+
 module.exports.getAllUser = function(callback,limit) {
 	User.find(callback).limit(limit);
-}
+};
 
 module.exports.updateUser = function(whereQuery, newValues, callback) {
 	User.update(whereQuery, {$set: newValues}, callback);
