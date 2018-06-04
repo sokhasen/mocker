@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d51987e0-aa60-4956-97dc-60d2fdc83e17" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/controllers/method.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/method.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/method.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/faker.js" beforeDir="false" afterPath="$PROJECT_DIR$/core/faker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middlewares/middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/middleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/collection.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/project.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/resource3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/project.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/resource3.js" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,20 +19,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="35" column="49" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
+            <state relative-caret-position="107">
+              <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="middleware.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="middleware.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/middlewares/middleware.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="8" column="45" lean-forward="true" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
+            <state relative-caret-position="53">
+              <caret line="6" column="5" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -157,11 +146,11 @@
         <option value="$PROJECT_DIR$/models/response.js" />
         <option value="$PROJECT_DIR$/routes/response.js" />
         <option value="$PROJECT_DIR$/controllers/response.js" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/routes/method.js" />
         <option value="$PROJECT_DIR$/models/method.js" />
         <option value="$PROJECT_DIR$/controllers/method.js" />
         <option value="$PROJECT_DIR$/core/faker.js" />
+        <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
   </component>
@@ -298,12 +287,12 @@
       <workItem from="1527212969131" duration="9342000" />
       <workItem from="1527310079618" duration="17062000" />
       <workItem from="1527486065810" duration="675000" />
-      <workItem from="1527997793025" duration="32580000" />
+      <workItem from="1527997793025" duration="32765000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74822000" />
+    <option name="totallyTimeSpent" value="75007000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -664,13 +653,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="35" column="49" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/collection.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -680,8 +662,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/middlewares/middleware.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="45" lean-forward="true" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
+        <state relative-caret-position="53">
+          <caret line="6" column="5" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
         </state>
       </provider>
     </entry>
