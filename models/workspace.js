@@ -41,9 +41,34 @@ module.exports.createWorkSpace  = function (workspace, callback) {
     });
 };
 
-module.exports.getAllWorkspaces  = function (condition, limit, callback) {
+module.exports.getAllWorkspaces  = function (condition, callback, limit ) {
     Workspace.find(condition, (error, query) => {
         if (error) throw error;
         callback(query);
     }).limit(limit);
+};
+
+
+
+module.exports.updateWorkspace = function(whereQuery, newValues, callback) {
+    Workspace.update(whereQuery, {$set: newValues}, (err, query) => {
+        if (err)
+            throw err;
+        callback(query);
+    });
+};
+
+module.exports.deleteWorkspace = function (workspaceId, callback) {
+    Workspace.deleteOne( { _id : workspaceId }, (err, query) => {
+        if (err)  throw err;
+        callback(query);
+    });
+};
+
+module.exports.getOneWorkspace = function( workspaceId, callback) {
+    Workspace.findOne({ '_id': workspaceId}, (err, query) => {
+        if (err)  throw err;
+        callback(query);
+    });
+
 };

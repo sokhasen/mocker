@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const resourceSchema = mongoose.Schema({
-	project_id: {
+	workspace_id: {
 		type: String,
 		required:true
 	},
@@ -9,15 +9,9 @@ const resourceSchema = mongoose.Schema({
 		type: String,
 		required:true
 	},
-	method: {
-		type:String,
-		required: false,
-		default: "GET"
-	},
-	response: {
-		type: Array,
-		required:true,
-		default: []
+	description: {
+		type: String,
+		required: false
 	},
 	created_at: {
 		type: Date,
@@ -39,26 +33,33 @@ module.exports.createResource = function(resource,callback) {
     });
 };
 
-module.exports.getAll = function (callback, limit) {
-	Resource.find((err, query) => {
+module.exports.getAllResourcesByWorkspaceId = function (workspace_id, callback, limit) {
+	Resource.find({ workspace_id: workspace_id}, (err, query) => {
         if (err)
             throw err;
         callback(query);
     }).limit(limit);
 };
 
-module.exports.update = function(whereQuery, newValues, callback) {
-    Resource.update(whereQuery, {$set: newValues}, (err, query) => {
+module.exports.updateResource = function(resourceId, newValues, callback) {
+    Resource.update({ _id: resourceId}, {$set: newValues}, (err, query) => {
         if (err)
             throw err;
         callback(query);
     });
 };
 
-module.exports.delete = function (resourceId) {
-    try {
-        Resource.deleteOne( { "_id" : ObjectId(resourceId) } );
-    } catch (e) {
-        throw e;
-    }
+module.exports.deleteResource = function (resourceId, callback) {
+    Resource.deleteOne( { _id : resourceId } , (err, query) => {
+    	if (err) throw err;
+    	callback(query);
+	});
+};
+
+module.exports.getOneResource = function (resourceId, callback) {
+    Resource.findOne({ _id: resourceId}, (err, query) => {
+        if (err)
+            throw err;
+        callback(query);
+    })
 };

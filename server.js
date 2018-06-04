@@ -1,5 +1,5 @@
-const express = require('express');
-const app = express();
-app.set('port', 3000);
+const axios = require('axios');
 
-app.listen(app.get('port'));
+axios.get('https://localhost:2018/api/v1/workspaces')
+    .then(response =>  console.log(response.data.workspaces))
+    .catch(err => console.log(err));

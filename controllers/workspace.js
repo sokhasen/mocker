@@ -1,7 +1,20 @@
 const workspace = require("../models/workspace");
 
 const controller  =  {};
-controller.createWorkspace = function(req, res) {
+
+module.exports = controller;
+
+controller.getAllWorkspaces =   (req, res) => {
+    const user_id = req.params.user_id;
+    workspace.getAllWorkspaces({uid: user_id}, data => {
+        res.status(200);
+        return res.json({
+            workspaces: data
+        });
+    });
+};
+
+controller.createWorkspace = (req, res) => {
 
     const name = req.body.name;
     const deploy_name = req.body.deploy_name;
@@ -21,23 +34,58 @@ controller.createWorkspace = function(req, res) {
             description: description,
             uid: user_id
         };
-        workspace.createWorkSpace(data, (query) => {
+        workspace.createWorkSpace(data, query => {
             res.status(200);
             res.json({
                 message: "The workspace has been created successfully!",
-                workspace_id: query
+                workspace: query
             });
         });
     }
 };
 
-controller.getAllWorkspaces =  function (req, res) {
-    workspace.getAllWorkspaces({}, null, (data) => {
-        res.status(200);
-        return res.json({
-            workspaces: data
+
+controller.updateWorkspace =  (req, res) => {
+    const workspace_id = req.params.id;
+    const name = req.body.name;
+    const deploy_name = req.body.deploy_name;
+    const description = req.body.description;
+
+    if (!workspace_id || !name || !deploy_name) {
+        res.status(400);
+        res.json({
+            message: "missing required workspace id"
         });
-    });
+    }
+    else
+    {
+        let whereQuery = {"_id": workspace_id};
+        let param = { name: name, deploy_name: deploy_name, description: description};
+        workspace.updateWorkspace(whereQuery, param, query => {
+            workspace.getOneWorkspace(workspace_id, query => {
+                res.json({
+                    message: "The workspace has been updated successfully!",
+                    workspace: query
+                });
+            });
+        });
+    }
 };
 
-module.exports = controller;
+controller.getOneWorkspace = (req, res) => {
+  const workspace_id = req.params.id;
+  workspace.getOneWorkspace(workspace_id, query => {
+     res.json({
+         workspace: query
+     });
+  });
+};
+
+controller.destroyWorkspace =  (req, res) => {
+  const workspaceId = req.params.id;
+  workspace.deleteWorkspace(workspaceId, query => {
+      res.json({
+          message: "The workspace has been delete successfully!"
+      });
+  })
+};
