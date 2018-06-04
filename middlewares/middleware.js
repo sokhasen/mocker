@@ -1,5 +1,4 @@
 const User = require('../models/user');
-const Project = require('../models/project');
 
 module.exports.checkSubDomainName =  function ( req, res, next) {
     const subDomainNames = req.subdomains;
