@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d51987e0-aa60-4956-97dc-60d2fdc83e17" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/resource.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/resource.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/workspace.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/workspace.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/method.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/method.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/resource.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/resource.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/workspace.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/workspace.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+            <state relative-caret-position="229">
+              <caret line="10" column="28" lean-forward="true" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -70,11 +64,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="method.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="method.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/method.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="138">
               <caret line="6" column="48" lean-forward="true" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="46">
+              <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -102,15 +105,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="138">
               <caret line="6" column="5" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="method.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/method.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="644">
-              <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -165,13 +159,13 @@
         <option value="$PROJECT_DIR$/models/method.js" />
         <option value="$PROJECT_DIR$/controllers/method.js" />
         <option value="$PROJECT_DIR$/core/faker.js" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/controllers/workspace.js" />
         <option value="$PROJECT_DIR$/models/resource.js" />
         <option value="$PROJECT_DIR$/controllers/resource.js" />
         <option value="$PROJECT_DIR$/routes/resource.js" />
         <option value="$PROJECT_DIR$/routes/workspace.js" />
         <option value="$PROJECT_DIR$/routes/method.js" />
+        <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
   </component>
@@ -290,12 +284,12 @@
       <workItem from="1527310079618" duration="17062000" />
       <workItem from="1527486065810" duration="675000" />
       <workItem from="1527997793025" duration="35075000" />
-      <workItem from="1528352472395" duration="1981000" />
+      <workItem from="1528352472395" duration="2500000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79298000" />
+    <option name="totallyTimeSpent" value="79817000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -310,7 +304,7 @@
     <frame x="0" y="23" width="1280" height="736" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49588138" visible="true" weight="0.18427323" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49588138" visible="true" weight="0.18427323" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32965517" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -318,7 +312,7 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.33931035" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Structure" order="1" sideWeight="0.50104386" side_tool="true" weight="0.18456642" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.38202247" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.38202247" />
       <window_info id="Favorites" order="2" sideWeight="0.5041186" side_tool="true" weight="0.18427323" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -453,13 +447,6 @@
     <entry file="file://$USER_HOME$/Downloads/MOCK_DATA.json" />
     <entry file="file://$PROJECT_DIR$/core/mokes/firstname.js" />
     <entry file="file://$PROJECT_DIR$/core/mokes/username.js" />
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/user.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="373">
@@ -525,13 +512,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/workspace.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -578,6 +558,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="6" column="48" lean-forward="true" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="10" column="28" lean-forward="true" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
         </state>
       </provider>
     </entry>
