@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const resource = require("../controllers/resource");
 
-
+router.get('/resources/workspaces', (req, res) =>  res.status(400).json({message: "Server required param workspace id"}));
 router.get('/resources/workspaces/:workspace_id', resource.getAllResources);
 router.post('/resources', resource.createResource);
 router.get('/resources/:id', resource.getOneResource);

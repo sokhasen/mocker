@@ -6,6 +6,11 @@ module.exports = controller;
 
 controller.getAllWorkspaces =   (req, res) => {
     const user_id = req.params.user_id;
+    if (!user_id)
+        return res.status(400).json({
+                    message: "Param user id is null, server required user id!"
+                });
+
     workspace.getAllWorkspaces({uid: user_id}, data => {
         res.status(200);
         return res.json({
@@ -73,7 +78,13 @@ controller.updateWorkspace =  (req, res) => {
 };
 
 controller.getOneWorkspace = (req, res) => {
-  const workspace_id = req.params.id;
+  const workspace_id = req.params.id || 0;
+  if (!workspace_id)
+        return res
+            .status(400)
+            .json({
+                message: "param workspace id is null, server required workspace id!"
+            });
   workspace.getOneWorkspace(workspace_id, query => {
      res.json({
          workspace: query
@@ -83,6 +94,12 @@ controller.getOneWorkspace = (req, res) => {
 
 controller.destroyWorkspace =  (req, res) => {
   const workspaceId = req.params.id;
+    if (!workspaceId)
+        return res
+            .status(400)
+            .json({
+                message: "param workspace id is null, server required workspace id!"
+            });
   workspace.deleteWorkspace(workspaceId, query => {
       res.json({
           message: "The workspace has been delete successfully!"

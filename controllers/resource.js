@@ -37,6 +37,12 @@ controller.createResource =  (req, res) => {
 
 controller.getAllResources = (req, res) => {
     const workspace_id = req.params.workspace_id;
+    if (!workspace_id)
+        return res
+            .status(400)
+            .json({
+                message: "Param workspace id is null, server required workspace id!"
+            });
     resource.getAllResourcesByWorkspaceId(workspace_id, (data) => {
         res.status(200);
         return res.json({
@@ -50,7 +56,7 @@ controller.getOneResource = (req, res) => {
   if (!resourceId) {
       res.status(400);
       res.json({
-          message: "missing required fields"
+          message: "missing required resource id"
       })
   }
   else
@@ -91,6 +97,12 @@ controller.updateResource =  (req, res) => {
 
 controller.deleteResource =  (req, res) => {
   const resourceId = req.params.id;
+  if (!resourceId)
+        return res
+            .status(400)
+            .json({
+                message: "Param resource id id is null, server required resource id!"
+            });
   resource.deleteResource(resourceId, query => {
      res.json({
          message: "The resource has been deleted successfully!"
