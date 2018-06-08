@@ -5,21 +5,28 @@ var mongoose = require("mongoose");
 var DEFAULT_PORT = process.env.PORT || 2018;
 var STAGE = "/api/v1/";
 
-const mongoLocal = "mongodb://sokha:76b16afb8783fecd803b737acaaed18d41b9aa86c6900eb6a0ac852be132805a@ds213229.mlab.com:13229/mock-server-api"; //
-// const mongoLocal = 'mongodb://localhost/api_management';
+// const mongoLocal = "mongodb://sokha:76b16afb8783fecd803b737acaaed18d41b9aa86c6900eb6a0ac852be132805a@ds213229.mlab.com:13229/mock-server-api"; //
+const mongoLocal = 'mongodb://localhost/api_management';
 mongoose.connect(process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || mongoLocal);
 var db = mongoose.connection;
 
 var user = require("./routes/user");
-
 var workspace = require("./routes/workspace");
 var resource = require("./routes/resource");
 var method = require("./routes/method");
+
+const registerRouters =  [user, workspace, resource, method];
 
 var middleware = require("./middlewares/middleware");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', "*");
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
 
 // app.use(middleware.checkSubDomainName);
 /*
@@ -33,7 +40,7 @@ app.use((req, res, next) => {
 });
 */
 
-app.use(STAGE, [user, workspace, resource, method]);
+app.use(STAGE, middleware.guardAuth,  registerRouters);
 
 
 // catch 404 and forward to error handler
