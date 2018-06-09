@@ -52,6 +52,13 @@ module.exports.getAllUser = function(callback,limit) {
 	User.find(callback).limit(limit);
 };
 
+module.exports.getOneUser = function(user_id, callback) {
+	User.findOne({_id: user_id}, (err, result) => {
+		if (err) throw  err;
+		callback(result);
+	})
+};
+
 module.exports.updateUser = function(whereQuery, newValues, callback) {
 	User.update(whereQuery, {$set: newValues}, callback);
 };

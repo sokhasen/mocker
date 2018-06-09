@@ -75,7 +75,7 @@ controller.userRegister = (req, res) => {
                         throw err;
                     }
                     // create token
-                    const payload = {user_id: result.insertId};
+                    const payload = {user_id: result._id};
                     const token = __createToken(payload);
                     const key = {"email": email};
                     const newValue = {"token": token};
@@ -90,6 +90,7 @@ controller.userRegister = (req, res) => {
                         console.log("send response");
                         res.status(200);
                         res.json({
+                            success: true,
                             status: "success",
                             token: token,
                             message: "a new user has been created successfully"
@@ -105,6 +106,7 @@ controller.userRegister = (req, res) => {
     else {
         res.status(400);
         res.json({
+            success: false,
             status: "error",
             statusCode: 400,
             message: "required missing field"
@@ -113,7 +115,31 @@ controller.userRegister = (req, res) => {
 };
 
 controller.getUserProfile = (req, res) => {
+    const user_id = req.decoded.user_id;
 
+    if (!user_id) {
+        res.status(403);
+        res.json({
+            success: false,
+           message: "user id doesn't provide to server"
+        });
+    }
+    else {
+        user.getOneUser(user_id, (query) => {
+            let user = {
+                "is_user": query.is_user,
+                "created_at": query.created_at,
+                "updated_at": query.updated_at,
+                "user_id": query._id,
+                "username": query.username,
+                "email": query.email
+            };
+           res.json({
+               "success": true,
+               "user": user
+           });
+        });
+    }
 };
 
 controller.resendEmail = (req, res) => {
