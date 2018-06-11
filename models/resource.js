@@ -63,3 +63,12 @@ module.exports.getOneResource = function (resourceId, callback) {
         callback(query);
     })
 };
+module.exports.getOneResourceByWorkspaceIdAndResourceName  = function (workspaceId, resourceName, callback) {
+	Resource.findOne({
+		workspace_id: workspaceId,
+		name: resourceName
+	}, (error, result) => {
+		if (error) throw error;
+		callback(result);
+	});
+};

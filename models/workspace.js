@@ -72,3 +72,10 @@ module.exports.getOneWorkspace = function( workspaceId, callback) {
     });
 
 };
+
+module.exports.getOneWorkspaceByDeployName = function (deploy_name,callback ) {
+    Workspace.findOne({ deploy_name: deploy_name}, (error, result) => {
+        if (error) throw error;
+        callback(result);
+    });
+};

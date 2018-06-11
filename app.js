@@ -14,6 +14,7 @@ var user = require("./routes/user");
 var workspace = require("./routes/workspace");
 var resource = require("./routes/resource");
 var method = require("./routes/method");
+var deployment = require("./routes/deployment");
 
 const registerRouters =  [user, workspace, resource, method];
 
@@ -39,6 +40,9 @@ app.use((req, res, next) => {
     next();
 });
 */
+
+// middleware deploy url
+// app.use("/",  deployment);
 
 app.use(STAGE, middleware.guardAuth,  registerRouters);
 
